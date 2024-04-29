@@ -27,11 +27,11 @@ class NoteAdapter:RecyclerView.Adapter<NoteAdapter.NoteViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        holder.itemView.id_item_title.text = listNote[position].title // каждая запись ресайкл вью будет содеражть строку с заголовком
+        holder.itemView.id_item_title.text = listNote[position].title
 
     }
 
-    override fun getItemCount(): Int { //строчек будет столько,сколько записей в списке
+    override fun getItemCount(): Int {
         return listNote.size
 
     }
@@ -39,13 +39,13 @@ class NoteAdapter:RecyclerView.Adapter<NoteAdapter.NoteViewHolder>(){
     @SuppressLint("NotifyDataSetChanged")
     fun setList(list:List<NoteModel>){
         listNote = list
-        notifyDataSetChanged() //обновление списка listNote при изменении list
+        notifyDataSetChanged()
     }
 
     override fun onViewAttachedToWindow(holder: NoteViewHolder) {
         super.onViewAttachedToWindow(holder)
         holder.itemView.setOnClickListener {
-            StartFragment.clickNote(listNote[holder.adapterPosition])//вызов функции отображения детального описания заметки
+            StartFragment.clickNote(listNote[holder.adapterPosition])
         }
     }
 
